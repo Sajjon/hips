@@ -214,3 +214,11 @@ Press `Enter` to show the **combat log**, and press `Enter` again to hide it.
 For every attack between `creature stacks` recorded in the **combat log**, identify both the attacker and the target using the labels from `hip-0029`. For example: “Black Dragons (`F`) attack Black Dragons (`b`), inflicting 7,286 damage; 5 creatures perish.”
 
 > **Author:** Alexander Cyon · **Date:** 2026-10-10 · **Status:** **DRAFT** · **Estimate:** **Trivial**
+
+### `hip-0037` - Name artifact-granted regeneration
+> [!IMPORTANT]
+> **Depends on:** `hip-0029`
+
+When a living `creature stack` regenerates because its hero has the *Elixir of Life* equipped, identify the `combination artifact` as the source in the **combat log**. This distinguishes artifact-granted `Regeneration` from an innate creature ability. For example: “Azure Dragons (`b`) regenerate 50 hit points due to *Elixir of Life*.”
+
+> **Author:** Alexander Cyon · **Date:** 2026-10-10 · **Status:** **DRAFT** · **Estimate:** **Simple**
