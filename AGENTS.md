@@ -2,19 +2,26 @@
 
 ## Purpose
 
-This repository maintains improvement proposals for *Heroes of Might and Magic III* with *Horn of the Abyss* and the *HD Mod*. `README.md` is the proposal catalogue and source of truth.
+This repository maintains improvement proposals for *Heroes of Might and Magic III* with *Horn of the Abyss* and the *HD Mod*. `README.md` is the proposal catalogue. Each `hip-NNNN.md` file is the source of truth for that proposal's content and metadata.
 
 ## Proposal format
 
-- Organize categories under level-two headings (`##`) and individual proposals under level-three headings (`###`).
-- Give every proposal a globally unique, sequential ID in the form `hip-NNNN`. Derive the next ID from `README.md`; do not reuse or renumber an existing ID unless the user explicitly requests it.
-- Use a short, descriptive title: ``### `hip-NNNN` - Title``.
-- Put the proposal text directly below its heading. Explain the desired behavior precisely enough to distinguish it from current game behavior.
-- When one proposal depends on another, put this block immediately below its heading:
+- Store every proposal in a root-level file named `hip-NNNN.md`; do not put proposal prose in `README.md`.
+- Give every proposal a globally unique, sequential ID in the form `hip-NNNN`. Derive the next ID from the existing proposal filenames and `README.md`; do not reuse or renumber an existing ID unless the user explicitly requests it.
+- Start each proposal with a short, descriptive level-one heading followed by its catalogue category:
+
+  ```markdown
+  # `hip-NNNN` - Title
+
+  > **Category:** Category name
+  ```
+
+- Put the proposal text below its category and explain the desired behavior precisely enough to distinguish it from current game behavior.
+- When one proposal depends on another, put this block immediately below the category:
 
   ```markdown
   > [!IMPORTANT]
-  > **Depends on:** `hip-NNNN`
+  > **Depends on:** [`hip-NNNN`](hip-NNNN.md)
   ```
 
 - End every proposal with this metadata footer, using the proposal's creation date and one of the four allowed estimates:
@@ -23,7 +30,8 @@ This repository maintains improvement proposals for *Heroes of Might and Magic I
   > **Author:** Alexander Cyon · **Date:** YYYY-MM-DD · **Status:** **DRAFT** · **Estimate:** **Trivial|Simple|Average|Complex**
   ```
 
-- Leave exactly one blank line before each heading. Put a proposal's first content line directly below its heading, separate its subsequent blocks with one blank line, and end every text file with a newline.
+- Add exactly one `README.md` catalogue row for every proposal. In the **Number** column, link the unpadded decimal number, such as `1`, to its zero-padded proposal filename, such as `hip-0001.md`. Keep its category, title, author, status, and estimate synchronized with that file.
+- Separate all proposal blocks with one blank line and end every text file with a newline.
 
 ## Language and styling
 
@@ -46,7 +54,8 @@ This repository maintains improvement proposals for *Heroes of Might and Magic I
 
 - Run `pre-commit run --all-files` before committing. The hook and CI both run the Rust-based `typos` CLI.
 - Run `git diff --check`.
-- Confirm that proposal IDs are unique and sequential, and that the proposal-heading count equals the metadata-footer count.
+- Confirm that proposal IDs are unique and sequential across filenames, proposal headings, and the `README.md` catalogue.
+- Confirm that the proposal-file count, catalogue-row count, proposal-heading count, category count, and metadata-footer count are equal, and that every catalogue link resolves.
 - Treat reported spelling mistakes as defects. Add an entry to `_typos.toml` only after confirming that it is a genuine project-specific term or other false positive; keep every exception as narrow as possible.
 
 ## Commits
