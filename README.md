@@ -207,13 +207,15 @@ Press `Enter` to show the **combat log**, and press `Enter` again to hide it.
 
 > **Author:** Alexander Cyon · **Date:** 2026-10-10 · **Status:** **DRAFT** · **Estimate:** **Trivial**
 
-### `hip-0036` - Identify attack sources and targets
+### `hip-0036` - Identify attack sources and all targets
 > [!IMPORTANT]
 > **Depends on:** `hip-0029`
 
-For every attack between `creature stacks` recorded in the **combat log**, identify both the attacker and the target using the labels from `hip-0029`. For example: “Black Dragons (`F`) attack Black Dragons (`b`), inflicting 7,286 damage; 5 creatures perish.”
+For every attack recorded in the **combat log**, identify the attacker and every affected `creature stack` using the labels from `hip-0029`. Report the damage and number of creatures that perish separately for each stack; do not collapse an area-of-effect attack into a combined total. Include secondary, adjacent, and friendly-fire targets, as well as affected stacks that take zero damage because of an immunity, and preserve the order in which the game resolves them.
 
-> **Author:** Alexander Cyon · **Date:** 2026-10-10 · **Status:** **DRAFT** · **Estimate:** **Trivial**
+For example: “Black Dragons (`F`) attack Black Dragons (`b`), inflicting 7,286 damage; 5 creatures perish. Dragon breath also hits Titans (`c`), inflicting 1,200 damage; 4 creatures perish.” Apply the same structure to `Heat Stroke`, `Death Cloud`, `Fireball Attack`, attacks against all adjacent stacks, and every other attack that can affect multiple stacks.
+
+> **Author:** Alexander Cyon · **Date:** 2026-10-10 · **Status:** **DRAFT** · **Estimate:** **Average**
 
 ### `hip-0037` - Name artifact-granted regeneration
 > [!IMPORTANT]
@@ -222,3 +224,137 @@ For every attack between `creature stacks` recorded in the **combat log**, ident
 When a living `creature stack` regenerates because its hero has the *Elixir of Life* equipped, identify the `combination artifact` as the source in the **combat log**. This distinguishes artifact-granted `Regeneration` from an innate creature ability. For example: “Azure Dragons (`b`) regenerate 50 hit points due to *Elixir of Life*.”
 
 > **Author:** Alexander Cyon · **Date:** 2026-10-10 · **Status:** **DRAFT** · **Estimate:** **Simple**
+
+### `hip-0038` - Label every battlefield hex
+Assign a stable coordinate to every `hex` on the battlefield. Use the format `row:column`: number the 11 rows from top to bottom, then number the 15 hexes within each row from left to right. For example, `1:3` identifies the third hex from the left in the top row. Display these coordinates on the battlefield grid and keep them unchanged regardless of terrain, obstacles, highlights, or occupying stacks.
+
+> **Author:** Alexander Cyon · **Date:** 2026-10-10 · **Status:** **DRAFT** · **Estimate:** **Average**
+
+### `hip-0039` - Log every battle-affecting action
+> [!IMPORTANT]
+> **Depends on:** `hip-0029`, `hip-0038`
+
+Record every action or event that changes the battle state in the **combat log**, including movement, attacks and retaliations, spell casts and their effects, waiting, defending, and the creation of new `creature stacks`. Classify every entry as either `.info` or `.verbose`. Use `.info` for the classic combat-log events and outcomes that players should see by default. Use `.verbose` for the additional detail required to reconstruct the battle exactly using Cyon Combat Notation (`CCN`), including starting positions, exact movement paths, attack vectors, state counters, and complete resolved effects. Do not record interface interactions that leave the battle state unchanged; for example, opening and closing the **Spell Book** without casting a `spell` is not a battle action.
+
+At the start of combat, record the starting coordinate of every `creature stack`. If a hero can rearrange stacks during the `Tactics phase`, record only each stack's final position when that phase ends; do not record intermediate rearrangements. The final `Tactics phase` position is the stack's starting position for combat.
+
+Identify stacks using the labels from `hip-0029` and positions using the coordinates from `hip-0038`. For movement, record the destination hex. When a creature occupies two hexes, use its leftmost occupied hex as its position. For example, if Archangels (`b`) move to occupy `1:2` and `1:3`, log: “Archangels (`b`) move to hex `1:2`.”
+
+> **Author:** Alexander Cyon · **Date:** 2026-10-10 · **Status:** **DRAFT** · **Estimate:** **Complex**
+
+### `hip-0040` - Toggle combat-log detail
+> [!IMPORTANT]
+> **Depends on:** `hip-0039`
+
+Add an **Info / Verbose** detail-level toggle to the **combat log**. Default to **Info**, which shows only `.info` entries in the classic style. **Verbose** shows both `.info` and `.verbose` entries, including details such as `creature stack` movement. Changing the level only filters the view; it must not change which events are recorded or exported.
+
+> **Author:** Alexander Cyon · **Date:** 2026-10-10 · **Status:** **DRAFT** · **Estimate:** **Simple**
+
+### `hip-0041` - Add Cyon Combat Notation
+> [!IMPORTANT]
+> **Depends on:** `hip-0029`, `hip-0036`, `hip-0038`, `hip-0039`
+
+Define Cyon Combat Notation (`CCN`), a versioned, canonical, machine-readable text format for recording an entire combat. Like a chess `FEN` position followed by a move score, a `CCN` record consists of a complete initial snapshot followed by an ordered action-and-effect stream. It must be deterministic, lossless, and compact: an independent implementation applying the statements in order must reproduce every intermediate state and the exact final state without consulting the saved game, animations, an RNG, or unrecorded engine state.
+
+`CCN` records resolved facts, not how the game randomly selected them. Do not store an RNG seed, generator state, draw number, raw roll, or failed invisible roll. Instead, record every result that affects the battle: the chosen battlefield layout and obstacle hexes, exact `Quicksand` and `Land Mine` positions, selected targets and paths, triggered luck or morale, ability activations, damage, casualties, and resulting state. This keeps replay independent of engine version and RNG call order.
+
+The canonical form is ASCII without whitespace. Every statement ends with `;`. Decimal integers are used for exact values, signed rational numbers use `numerator/denominator`, `-` means not applicable, and `*` means unlimited. A coordinate is `row:column`; a footprint or ordered area is `[coordinate,coordinate,...]`. The six directions are `E`, `NE`, `NW`, `W`, `SW`, and `SE`, with an optional decimal run length such as `E3NE2`. Identifiers contain only ASCII letters, digits, `_`, `.`, and `-`; custom display text is UTF-8 percent-encoded using uppercase hexadecimal bytes in the dictionary. Lists are enclosed in `[]` and retain their order.
+
+Use this top-level grammar:
+
+```text
+record = "CCN1;" snapshot { round | phase | turn | event } result
+round  = "r" integer ";"
+phase  = "p" ("a" | "i" | "m" | "w") ";"
+turn   = "t" entity ["+" | "-"] ";"
+event  = level actor ":" opcode "(" [value {"," value}] ")"
+         [">" effect {"," effect}] ";"
+level  = "!" | "~"
+uint   = "0" | nonzero-digit {digit}
+int    = ["-"] uint
+ratio  = int "/" nonzero-digit {digit}
+hex    = uint ":" uint
+id     = id-character {id-character}
+entity = ("A"..."T") | ("a"..."t") | "HA" | "HD" | "@" id
+list   = "[" [value {"," value}] "]"
+text   = "'" {id-character | "%" hex-digit hex-digit} "'"
+value  = int | ratio | hex | id | entity | list | text | "-" | "*"
+```
+
+`digit` is `0`–`9`, `nonzero-digit` is `1`–`9`, `hex-digit` is uppercase `0`–`9` or `A`–`F`, and `id-character` is an ASCII letter, digit, `_`, `.`, or `-`. A `text` value contains percent-encoded UTF-8 bytes. Context determines whether a numeric pair is a rational number or a coordinate: coordinates occur only in coordinate-typed fields, while rational numbers occur only in numeric-value fields. Core opcodes and effect names are case-sensitive.
+
+`!` means `.info` and `~` means `.verbose`. `r12;` starts round 12, so following statements do not repeat the round number. `pa;`, `pi;`, `pm;`, and `pw;` start the automatic, initial-and-defend, morale-and-wait, and wait phases. Use `r0;pa;` for start-of-combat effects that occur after the final `Tactics phase` positions are known but before round 1. A turn marker such as `tF;` starts stack `F`'s normal activation, `tF+;` starts its extra positive-morale activation, and `tF-;` records that negative morale consumed its activation. The next turn, phase, round, or result statement closes the current activation.
+
+Use uppercase `A`–`T` and lowercase `a`–`t` for stacks as defined by `hip-0029`, `HA` and `HD` for the attacking and defending heroes, and `@identifier` for `war machines`, siege structures, battlefield objects, and automatic actors. Snapshot statements have these exact field orders:
+
+```text
+h(game,hota,hd,rules-digest);
+b(kind,terrain,magic-terrain,template,passability-mask,[global-state]);
+s(side,hero,level,[attack,defense,power,knowledge],[skill:rank],specialty,
+  [artifact],mana,[spell],casts-remaining,[temporary-bonus],formation);
+u(id,side,type,count,top-hp,anchor,[footprint],facing,attack,defense,speed,
+  morale,luck,shots,casts,retaliations,[state],[active-effect]);
+o(id,type,[footprint],orientation,owner,visibility,duration,hp,[state]);
+q([entity,entity,...]);
+d(id,kind,[field:value,field:value,...]);
+```
+
+`h` identifies the exact game, *Horn of the Abyss*, and *HD Mod* builds plus the SHA-256 digest of the static rules registry, written as `sha256-` followed by 64 lowercase hexadecimal digits. `b` defines the battlefield, including field, siege, naval, `creature bank`, and other special templates. Its `passability-mask` contains the 165 battlefield bits in `1:1` through `11:15` row-major order, packed most-significant bit first into 21 bytes with the final three padding bits set to zero, then encoded as unpadded Base64url. `s` occurs once per side and uses `-` for an absent hero. `u` occurs for every stack, summon, clone, corpse, and `war machine`; `top-hp` is the remaining health of the top creature. `o` occurs for every obstacle, peril, wall, tower, gate, drawbridge, moat, `Fire Wall`, `Force Field`, `Quicksand`, `Land Mine`, and other battlefield object. `visibility` is `A`, `D`, `AD`, or `-` for attacker, defender, both, or neither. `q` is the initial ordered initiative queue. `d` declares custom or namespaced content not present in the rules registry; its fields are sorted by field name. Snapshot order is `h`, `b`, attacker `s`, defender `s`, all `d` statements sorted by ID, all `u` statements sorted by entity ID, all `o` statements sorted by object ID, then `q`.
+
+Core action opcodes and their exact operands are:
+
+```text
+m(mode,start,path,end)
+a(kind,target,target-hex,contact-hex,vector,[result-tag])
+c(spell,proficiency,target,[result-tag])
+x(ability,origin,vector,[ordered-area],target,[result-tag])
+w()
+d()
+f(retreat|surrender)
+```
+
+Movement `mode` is `w`, `f`, `t`, or `b` for walking, flying, teleporting, or burrowing. `path` is a direction run or `-` when no intermediate hex is traversed. The resulting position effect always supplies the complete footprint and facing. Attack `kind` is `m`, `s`, `r`, or `p` for melee, shot, retaliation, or preemptive shot. `target-hex` is the selected hex of the target, `contact-hex` is the attacker's attacking hex, and `vector` is the ordered direction run from contact to target; ranged attacks retain the complete ray needed to reproduce wall interaction. A stack that moves and attacks has `m` followed by `a` in the same turn; a stack that attacks without moving has no intervening `m` event.
+
+`c` records a hero or creature `spell`. `x` records every alternative, automatic, or activated ability using a stable namespaced identifier. A `Heat Stroke` event, for example, records `hota.heat_stroke`, its origin, chosen direction, complete ordered area, optional selected target, resolved luck tag, and all resulting damage effects. Dragon breath, `Death Cloud`, `Fireball Attack`, attacks against all adjacent stacks, double attacks, `Fire Shield`, regeneration, life drain, creature spellcasting, `Catapult` fire, and every other special mechanic use either the applicable core opcode or a namespaced `x` ability; they must never be approximated as an ordinary single-target attack.
+
+The optional ordered `result-tag` list records resolved facts needed to reproduce behavior or presentation, such as `luck+`, `luck-`, `morale+`, `resisted`, `death-blow`, `no-retaliation`, or a namespaced ability result. It never contains probabilities or random numbers.
+
+Effects are applied strictly from left to right and use these exact forms:
+
+```text
+D(entity,damage,perished,count-after,top-hp-after)
+H(entity,healed,resurrected,count-after,top-hp-after)
+P(entity,anchor,[footprint],facing)
+C(entity,counter,value)
+E+(entity,effect,source,duration,value)
+E-(entity,effect,source)
+N(u(...)|o(...))
+R(entity-or-object)
+V(object,visibility)
+S(entity.field,value)
+child = "^{" level actor ":" opcode "(" [value {"," value}] ")"
+        [">" effect {"," effect}] "}"
+```
+
+`D` always names the affected stack and records the exact damage, number of creatures that perish, remaining count, and remaining health of the top creature. An area attack emits one `D` effect per affected stack in resolution order, including zero-damage results. `H` does the same for healing and resurrection. `P` changes position. `C` sets an absolute counter such as shots, creature casts, hero spell points, hero casts remaining, retaliations, preemptive shots, wait, or defend state. `E+` and `E-` add and remove a sourced effect. `N` creates a complete unit or object, `R` removes one, `V` changes hidden-object visibility, and `S` sets another registry-defined state field such as control, life state, siege health, gate position, or turn order. Absolute after-values make every record self-checking and prevent accumulated ambiguity.
+
+The `^{...}` form embeds a complete `.info` or `.verbose` reactive child event at its exact point in an effect list; omit `>effects` inside the braces only when the child has no state effect. Use it when order matters within one action, such as a `Fire Shield` response from each stack hit by a Hydra, a retaliation between the first and second strikes of a double attack, or a triggered peril during movement. Child events may contain their own ordered effects and nested children, allowing any chain to be represented without inventing an RNG history.
+
+For example, this pretty-printed fragment starts round 12, moves a two-hex stack east by two hexes, records its complete resulting footprint, then records a lucky melee attack and the defender's retaliation. Its canonical serialization removes the line breaks:
+
+```text
+r12;pi;tF;
+~F:m(w,5:3,E2,5:5)>P(F,5:5,[5:5,5:6],E);
+!F:a(m,b,5:7,5:6,E,[luck+])>D(b,7286,5,12,114);
+!b:a(r,F,5:6,5:7,W,[])>D(F,900,0,20,100),C(b,retaliations,0);
+```
+
+No statement may omit a state change required for replay. This includes positions and facing; attacks and every individually damaged stack; damage, healing, casualties, resurrection, summoning, cloning, transformation, control, death, and corpses; shots, casts, spell points, retaliations, and extra actions; active effects, sources, durations, dispels, and immunities; obstacle creation, revelation, triggering, expiration, and removal; and `war machine`, wall, tower, gate, drawbridge, and moat state. The exact chosen hexes are recorded when `Quicksand`, `Land Mine`, `Remove Obstacle`, `Earthquake`, or another effect changes the battlefield. `Fire Shield` and similar reactive damage never consume a retaliation unless an explicit counter effect says so.
+
+End the record with `z(winner,reason,[attacker-casualty],[defender-casualty],final-digest);`. Each casualty item is `entity:permanently-lost`; items are sorted by entity ID. `winner` is `A`, `D`, or `-`, and `reason` is a registry value such as `defeat`, `retreat`, or `surrender`. `final-digest` is `sha256-` followed by the lowercase SHA-256 digest of the final `s`, `u`, `o`, and `q` statements in canonical snapshot order. A parser must reject a record when an after-value, final casualty total, or final digest disagrees with the state produced by the preceding statements.
+
+The `.verbose` **combat log** is a human-readable rendering of this structured stream; `CCN` must never be reconstructed by parsing prose. A valid exporter must reject or explicitly mark an incomplete record if any action, affected entity, ordered effect, or state transition cannot be represented. Extensions use namespaced identifiers and dictionary declarations, and readers preserve unknown extension data when round-tripping.
+
+A full `CCN` record may contain hidden information needed for exact replay, including enemy `artifacts`, invisible perils, and unrevealed effects. Record that information internally, but do not expose it through the live **combat log** or a player-accessible export while it could affect an ongoing game. Public views must retain the existing information boundaries; full replay data may be revealed only when the combat is over and doing so cannot leak information relevant to continued play.
+
+> **Author:** Alexander Cyon · **Date:** 2026-10-10 · **Status:** **DRAFT** · **Estimate:** **Complex**
