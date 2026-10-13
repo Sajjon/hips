@@ -51,3 +51,7 @@ Each proposal has its own file. The catalogue below is ordered by its globally u
 | [44](hip-0044.md) | Global UI | Add thousands separators to all numbers | Alexander Cyon | **DRAFT** | Complex |
 | [45](hip-0045.md) | Combat UI | Target enemy stacks from the battle queue | Alexander Cyon | **DRAFT** | Average |
 | [46](hip-0046.md) | Adventure Map UI | Show terrain movement and combat effects | Alexander Cyon | **DRAFT** | Average |
+
+## Invitation
+
+Alexander Barinov ([`baratorch`](https://github.com/baratorch)), creator of the *HD Mod* and one of the developers of *Horn of the Abyss*, is warmly invited to email proposal author Alexander Cyon at [alex.cyon@gmail.com](mailto:alex.cyon@gmail.com) if he would like to invite Alexander to help implement any of these proposals in the *HD Mod* or *Horn of the Abyss* codebase.
