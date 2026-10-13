@@ -46,5 +46,6 @@ Each proposal has its own file. The catalogue below is ordered by its globally u
 | [38](hip-0038.md) | Combat Log UI | Label every battlefield hex | Alexander Cyon | **DRAFT** | Average |
 | [39](hip-0039.md) | Combat Log UI | Log every battle-affecting action | Alexander Cyon | **DRAFT** | Complex |
 | [40](hip-0040.md) | Combat Log UI | Toggle combat-log detail | Alexander Cyon | **DRAFT** | Simple |
-| [41](hip-0041.md) | Combat Log UI | Add Cyon Combat Notation | Alexander Cyon | **DRAFT** | Complex |
 | [42](hip-0042.md) | Adventure Map UI | Skip the `Hut of the Magi` reveal animation | Alexander Cyon | **DRAFT** | Simple |
+| [43](hip-0043.md) | Hero UI — artifacts | Show primary skills without artifacts | Alexander Cyon | **DRAFT** | Simple |
+| [44](hip-0044.md) | Global UI | Add thousands separators to all numbers | Alexander Cyon | **DRAFT** | Complex |
