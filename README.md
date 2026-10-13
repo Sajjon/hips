@@ -54,4 +54,4 @@ Each proposal has its own file. The catalogue below is ordered by its globally u
 
 ## Invitation
 
-Alexander Barinov ([`baratorch`](https://github.com/baratorch)), creator of the *HD Mod* and one of the developers of *Horn of the Abyss*, is warmly invited to email proposal author Alexander Cyon ([@Sajjon](https://github.com/Sajjon)) at [alex.cyon@gmail.com](mailto:alex.cyon@gmail.com) if he would like to invite @Sajjon to help implement any of these proposals in the *HD Mod* or *Horn of the Abyss* codebase.
+Alexander Barinov ([`@baratorch`](https://github.com/baratorch)), creator of the *HD Mod* and one of the developers of *Horn of the Abyss*, is warmly invited to email proposal author Alexander Cyon ([@Sajjon](https://github.com/Sajjon)) at [alex.cyon@gmail.com](mailto:alex.cyon@gmail.com) if he would like to invite @Sajjon to help implement any of these proposals in the *HD Mod* or *Horn of the Abyss* codebase.
