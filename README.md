@@ -49,3 +49,4 @@ Each proposal has its own file. The catalogue below is ordered by its globally u
 | [42](hip-0042.md) | Adventure Map UI | Skip the `Hut of the Magi` reveal animation | Alexander Cyon | **DRAFT** | Simple |
 | [43](hip-0043.md) | Hero UI — artifacts | Show primary skills without artifacts | Alexander Cyon | **DRAFT** | Simple |
 | [44](hip-0044.md) | Global UI | Add thousands separators to all numbers | Alexander Cyon | **DRAFT** | Complex |
+| [45](hip-0045.md) | Combat UI | Target enemy stacks from the battle queue | Alexander Cyon | **DRAFT** | Average |
