@@ -14,7 +14,7 @@ Each proposal has its own file. The catalogue below is ordered by its globally u
 | [6](hip-0006.md) | Adventure Map UI | Preview next-day movement | Alexander Cyon | **DRAFT** | Complex |
 | [7](hip-0007.md) | Adventure Map UI | Interrupt enemy-turn movement | Alexander Cyon | **DRAFT** | Complex |
 | [8](hip-0008.md) | Adventure Map UI | Announce captured towns | Alexander Cyon | **DRAFT** | Average |
-| [9](hip-0009.md) | Adventure Map UI | Add an intermediate movement speed | Alexander Cyon | **DRAFT** | Complex |
+| [9](hip-0009.md) | Adventure Map UI | Add an intermediate animation speed | Alexander Cyon | **DRAFT** | Complex |
 | [10](hip-0010.md) | Adventure Map UI | Filter teleport destinations | Alexander Cyon | **DRAFT** | Complex |
 | [11](hip-0011.md) | Adventure Map UI | Show enemy movement on the minimap | Alexander Cyon | **DRAFT** | Complex |
 | [12](hip-0012.md) | Hero UI — artifacts | Group artifacts by class | Alexander Cyon | **DRAFT** | Complex |
