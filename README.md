@@ -33,7 +33,7 @@ Each proposal has its own file. The catalogue below is ordered by its globally u
 | [25](hip-0025.md) | Creature recruitment UI | Enter recruitment quantities | Alexander Cyon | **DRAFT** | Trivial |
 | [26](hip-0026.md) | Scenario restart behavior | Clarify restart randomization | Alexander Cyon | **DRAFT** | Average |
 | [27](hip-0027.md) | Combat UI | Show every active spell effect | Alexander Cyon | **DRAFT** | Average |
-| [28](hip-0028.md) | Combat UI | Show own morale and luck sources | Alexander Cyon | **DRAFT** | Complex |
+| [28](hip-0028.md) | Combat UI | Show enemy morale without revealing hidden sources | Alexander Cyon | **DRAFT** | Complex |
 | [29](hip-0029.md) | Combat UI | Label every creature stack | Alexander Cyon | **DRAFT** | Complex |
 | [30](hip-0030.md) | Combat UI | Expand the combat log to full screen | Alexander Cyon | **DRAFT** | Average |
 | [31](hip-0031.md) | Combat Log UI | Color stack names by player | Alexander Cyon | **DRAFT** | Trivial |
