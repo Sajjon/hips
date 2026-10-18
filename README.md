@@ -53,6 +53,9 @@ Each proposal has its own file. The catalogue below is ordered by its globally u
 | [45](hip-0045.md) | Combat UI | Target spells and ranged attacks from the battle queue | Alexander Cyon | **DRAFT** | Average |
 | [46](hip-0046.md) | Adventure Map UI | Show terrain movement and combat effects | Alexander Cyon | **DRAFT** | Average |
 | [47](hip-0047.md) | Hero UI — artifacts | Make identical costume artifacts interchangeable | Alexander Cyon | **DRAFT** | Simple |
+| [48](hip-0048.md) | Adventure Map UI | Mark towns with garrison heroes | Alexander Cyon | **DRAFT** | Simple |
+| [49](hip-0049.md) | Global UI | Activate two-choice dialogs with arrow keys | Alexander Cyon | **DRAFT** | Simple |
+| [50](hip-0050.md) | Hero UI | Cycle heroes with arrow keys | Alexander Cyon | **DRAFT** | Simple |
 
 ## Invitation
 
