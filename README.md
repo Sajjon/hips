@@ -57,6 +57,7 @@ Each proposal has its own file. The catalogue below is ordered by its globally u
 | [49](hip-0049.md) | Global UI | Activate two-choice dialogs with arrow keys | Alexander Cyon | **DRAFT** | Simple |
 | [50](hip-0050.md) | Hero UI | Cycle heroes with arrow keys | Alexander Cyon | **DRAFT** | Simple |
 | [51](hip-0051.md) | Kingdom Overview UI | Navigate Kingdom Overview towns with arrow keys | Alexander Cyon | **DRAFT** | Simple |
+| [52](hip-0052.md) | Spell Book UI | Mark spell levels in the Spell Book | Alexander Cyon | **DRAFT** | Simple |
 
 ## Invitation
 
