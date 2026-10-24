@@ -61,6 +61,7 @@ Each proposal has its own file. The catalogue below is ordered by its globally u
 | [53](hip-0053.md) | Hero UI — artifacts | Persist costumes in saved games | Alexander Cyon | **DRAFT** | Average |
 | [54](hip-0054.md) | Hero UI — artifacts | Equip beneficial artifacts automatically each new day | Alexander Cyon | **DRAFT** | Complex |
 | [55](hip-0055.md) | View World UI | Filter View World objects and cycle enemy heroes | Alexander Cyon | **DRAFT** | Average |
+| [56](hip-0056.md) | View World UI | Jump to View World locations with right-click | Alexander Cyon | **DRAFT** | Simple |
 
 ## Invitation
 
