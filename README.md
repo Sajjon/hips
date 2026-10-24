@@ -59,6 +59,7 @@ Each proposal has its own file. The catalogue below is ordered by its globally u
 | [51](hip-0051.md) | Kingdom Overview UI | Navigate Kingdom Overview towns with arrow keys | Alexander Cyon | **DRAFT** | Simple |
 | [52](hip-0052.md) | Spell Book UI | Mark spell levels in the Spell Book | Alexander Cyon | **DRAFT** | Simple |
 | [53](hip-0053.md) | Hero UI — artifacts | Persist costumes in saved games | Alexander Cyon | **DRAFT** | Average |
+| [54](hip-0054.md) | Hero UI — artifacts | Automate new-day artifact loadouts | Alexander Cyon | **DRAFT** | Complex |
 
 ## Invitation
 
