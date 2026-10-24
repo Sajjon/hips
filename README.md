@@ -60,6 +60,7 @@ Each proposal has its own file. The catalogue below is ordered by its globally u
 | [52](hip-0052.md) | Spell Book UI | Mark spell levels in the Spell Book | Alexander Cyon | **DRAFT** | Simple |
 | [53](hip-0053.md) | Hero UI — artifacts | Persist costumes in saved games | Alexander Cyon | **DRAFT** | Average |
 | [54](hip-0054.md) | Hero UI — artifacts | Equip beneficial artifacts automatically each new day | Alexander Cyon | **DRAFT** | Complex |
+| [55](hip-0055.md) | View World UI | Filter View World objects and cycle enemy heroes | Alexander Cyon | **DRAFT** | Average |
 
 ## Invitation
 
