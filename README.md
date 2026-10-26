@@ -56,7 +56,7 @@ Each proposal has its own file. The catalogue below is ordered by its globally u
 | [48](hip-0048.md) | Adventure Map UI | Mark towns with garrison heroes | Alexander Cyon | **DRAFT** | Simple |
 | [49](hip-0049.md) | Global UI | Activate two-choice dialogs with arrow keys | Alexander Cyon | **DRAFT** | Simple |
 | [50](hip-0050.md) | Hero UI | Cycle heroes with arrow keys | Alexander Cyon | **DRAFT** | Simple |
-| [51](hip-0051.md) | Kingdom Overview UI | Navigate Kingdom Overview towns with arrow keys | Alexander Cyon | **DRAFT** | Simple |
+| [51](hip-0051.md) | Global UI | Navigate every list with arrow keys | Alexander Cyon | **DRAFT** | Average |
 | [52](hip-0052.md) | Spell Book UI | Mark spell levels in the Spell Book | Alexander Cyon | **DRAFT** | Simple |
 | [53](hip-0053.md) | Hero UI — artifacts | Persist costumes in saved games | Alexander Cyon | **DRAFT** | Average |
 | [54](hip-0054.md) | Hero UI — artifacts | Equip beneficial artifacts automatically each new day | Alexander Cyon | **DRAFT** | Complex |
