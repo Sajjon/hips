@@ -64,6 +64,7 @@ Each proposal has its own file. The catalogue below is ordered by its globally u
 | [56](hip-0056.md) | View World UI | Jump to View World locations with right-click | Alexander Cyon | **DRAFT** | Simple |
 | [57](hip-0057.md) | Adventure Map UI | Skip stationary heroes during enemy turns | Alexander Cyon | **DRAFT** | Simple |
 | [58](hip-0058.md) | Combat UI | Repeat combat spells with `X` | Alexander Cyon | **DRAFT** | Average |
+| [59](hip-0059.md) | Combat UI | Cast combat spells with dedicated shortcuts | Alexander Cyon | **DRAFT** | Simple |
 
 ## Invitation
 
