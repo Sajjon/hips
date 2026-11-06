@@ -65,6 +65,7 @@ Each proposal has its own file. The catalogue below is ordered by its globally u
 | [57](hip-0057.md) | Adventure Map UI | Skip stationary heroes during enemy turns | Alexander Cyon | **DRAFT** | Simple |
 | [58](hip-0058.md) | Combat UI | Repeat combat spells with `X` | Alexander Cyon | **DRAFT** | Average |
 | [59](hip-0059.md) | Combat UI | Cast combat spells with dedicated shortcuts | Alexander Cyon | **DRAFT** | Simple |
+| [60](hip-0060.md) | Adventure Map UI | Scroll `Town Portal` to the current town | Alexander Cyon | **DRAFT** | Simple |
 
 ## Invitation
 
