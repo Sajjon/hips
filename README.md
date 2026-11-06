@@ -67,6 +67,47 @@ Each proposal has its own file. The catalogue below is ordered by its globally u
 | [59](hip-0059.md) | Combat UI | Cast combat spells with dedicated shortcuts | Alexander Cyon | **DRAFT** | Simple |
 | [60](hip-0060.md) | Adventure Map UI | Scroll `Town Portal` to the current town | Alexander Cyon | **DRAFT** | Simple |
 | [61](hip-0061.md) | Adventure Map UI | Filter `Town Portal` by town type | Alexander Cyon | **DRAFT** | Simple |
+| [62](hip-0062.md) | Adventure Map UI | Inspect connected map objects with right-click | [Noumenon72](https://www.reddit.com/user/Noumenon72/) | **DRAFT** | Average |
+| [63](hip-0063.md) | Adventure Map UI | Locate quest targets with right-click | [Noumenon72](https://www.reddit.com/user/Noumenon72/) | **DRAFT** | Average |
+| [64](hip-0064.md) | Combat UI | Save and reuse `Tactics` layouts | [Noumenon72](https://www.reddit.com/user/Noumenon72/) | **DRAFT** | Complex |
+| [65](hip-0065.md) | Main menu UI | Page through saved games with the keyboard | [Noumenon72](https://www.reddit.com/user/Noumenon72/) | **DRAFT** | Simple |
+| [66](hip-0066.md) | Adventure Map UI | Open boat hero exchanges with movement keys | [Noumenon72](https://www.reddit.com/user/Noumenon72/) | **DRAFT** | Simple |
+| [67](hip-0067.md) | Creature recruitment UI | Mark weekly recruitment at map dwellings | [Noumenon72](https://www.reddit.com/user/Noumenon72/) | **DRAFT** | Average |
+| [68](hip-0068.md) | Adventure Map UI | Preview movement bonuses from map objects | [Noumenon72](https://www.reddit.com/user/Noumenon72/) | **DRAFT** | Average |
+| [69](hip-0069.md) | Adventure Map UI | Find adventure-map objects by name | [Noumenon72](https://www.reddit.com/user/Noumenon72/) | **DRAFT** | Average |
+| [70](hip-0070.md) | Adventure Map UI | Jump to map coordinates from object search | [Noumenon72](https://www.reddit.com/user/Noumenon72/) | **DRAFT** | Simple |
+| [71](hip-0071.md) | Adventure Map UI | Find `Eyes of the Magi` and `Shipyards` | [Noumenon72](https://www.reddit.com/user/Noumenon72/) | **DRAFT** | Simple |
+| [72](hip-0072.md) | Adventure Map UI | Find enemy heroes and towns separately | [Noumenon72](https://www.reddit.com/user/Noumenon72/) | **DRAFT** | Simple |
+| [73](hip-0073.md) | Spell Book UI | Show hero-specific spell effects on hover | [Noumenon72](https://www.reddit.com/user/Noumenon72/) | **DRAFT** | Average |
+| [74](hip-0074.md) | Combat UI | Inspect the player's hero during combat | [Noumenon72](https://www.reddit.com/user/Noumenon72/) | **DRAFT** | Average |
+| [75](hip-0075.md) | Combat Log UI | Copy the combat log to the clipboard | [Noumenon72](https://www.reddit.com/user/Noumenon72/) | **DRAFT** | Simple |
+| [76](hip-0076.md) | Combat Log UI | Read the combat log from battle results | [Noumenon72](https://www.reddit.com/user/Noumenon72/) | **DRAFT** | Simple |
+| [77](hip-0077.md) | Hero UI | Show current hero specialty bonuses | [Noumenon72](https://www.reddit.com/user/Noumenon72/) | **DRAFT** | Average |
+| [78](hip-0078.md) | Hero UI — artifacts | Sort backpack artifacts alphabetically | [Noumenon72](https://www.reddit.com/user/Noumenon72/) | **DRAFT** | Simple |
+| [79](hip-0079.md) | Hero UI — artifacts | Open both backpacks during hero exchanges | [Noumenon72](https://www.reddit.com/user/Noumenon72/) | **DRAFT** | Average |
+| [80](hip-0080.md) | Hero UI | Select a hero when closing an exchange | [Noumenon72](https://www.reddit.com/user/Noumenon72/) | **DRAFT** | Simple |
+| [81](hip-0081.md) | Combat UI | Preview retaliation damage before melee attacks | [Noumenon72](https://www.reddit.com/user/Noumenon72/) | **DRAFT** | Complex |
+| [82](hip-0082.md) | Combat UI | Preview the second hex of breath attacks | [Noumenon72](https://www.reddit.com/user/Noumenon72/) | **DRAFT** | Average |
+| [83](hip-0083.md) | Combat UI | Show the ranged damage penalty boundary | [Noumenon72](https://www.reddit.com/user/Noumenon72/) | **DRAFT** | Average |
+| [84](hip-0084.md) | Combat UI | Show remaining retaliations in creature information | [Noumenon72](https://www.reddit.com/user/Noumenon72/) | **DRAFT** | Average |
+| [85](hip-0085.md) | Combat UI | Select `Tactics` stacks without opening details | [Noumenon72](https://www.reddit.com/user/Noumenon72/) | **DRAFT** | Simple |
+| [86](hip-0086.md) | Town UI | Sell resources down to a chosen reserve | [Noumenon72](https://www.reddit.com/user/Noumenon72/) | **DRAFT** | Simple |
+| [87](hip-0087.md) | Town UI | Default Marketplace proceeds to gold | [Noumenon72](https://www.reddit.com/user/Noumenon72/) | **DRAFT** | Simple |
+| [88](hip-0088.md) | Adventure Map UI | Cycle heroes and towns in reverse | [Noumenon72](https://www.reddit.com/user/Noumenon72/) | **DRAFT** | Simple |
+| [89](hip-0089.md) | Hero UI | Open the Spell Book from the Hero Screen with `C` | [Noumenon72](https://www.reddit.com/user/Noumenon72/) | **DRAFT** | Simple |
+| [90](hip-0090.md) | Adventure Map UI | Bookmark adventure-map locations | [Noumenon72](https://www.reddit.com/user/Noumenon72/) | **DRAFT** | Complex |
+| [91](hip-0091.md) | Adventure Map UI | Preview routes through known portals | [Noumenon72](https://www.reddit.com/user/Noumenon72/) | **DRAFT** | Complex |
+| [92](hip-0092.md) | Creature recruitment UI | Rearrange troops in the Hill Fort | [Noumenon72](https://www.reddit.com/user/Noumenon72/) | **DRAFT** | Average |
+| [93](hip-0093.md) | Town UI | Offer a Spell Book when entering a Mage Guild town | [Noumenon72](https://www.reddit.com/user/Noumenon72/) | **DRAFT** | Average |
+| [94](hip-0094.md) | Spell Book UI | Track learnable spells in a wishlist | [Noumenon72](https://www.reddit.com/user/Noumenon72/) | **DRAFT** | Complex |
+| [95](hip-0095.md) | Adventure Map UI | Sort the town list by town type | [Noumenon72](https://www.reddit.com/user/Noumenon72/) | **DRAFT** | Simple |
+| [96](hip-0096.md) | Town UI | Preview the total exchange value of resources | [Noumenon72](https://www.reddit.com/user/Noumenon72/) | **DRAFT** | Average |
+| [97](hip-0097.md) | Hero UI — artifacts | Track combination artifact components | [Noumenon72](https://www.reddit.com/user/Noumenon72/) | **DRAFT** | Average |
+| [98](hip-0098.md) | Adventure Map UI | Page through teleport destinations | [Noumenon72](https://www.reddit.com/user/Noumenon72/) | **DRAFT** | Simple |
+| [99](hip-0099.md) | Town UI | Open town construction with a hotkey | [Noumenon72](https://www.reddit.com/user/Noumenon72/) | **DRAFT** | Simple |
+| [100](hip-0100.md) | Hero UI | Show remaining movement in the Hero Screen | [Noumenon72](https://www.reddit.com/user/Noumenon72/) | **DRAFT** | Simple |
+| [101](hip-0101.md) | Adventure Map UI | Use legal final diagonal steps in automatic routes | [Noumenon72](https://www.reddit.com/user/Noumenon72/) | **DRAFT** | Average |
+| [102](hip-0102.md) | Main menu UI | Prefill saves with the last saved filename | [Noumenon72](https://www.reddit.com/user/Noumenon72/) | **DRAFT** | Simple |
 
 ## Invitation
 
