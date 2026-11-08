@@ -1,6 +1,10 @@
 # Combat-log proof-of-concept prompt
 
-Generated with the built-in image-generation tool from the screenshot supplied on 2026-11-07. The transcript preserves the screenshot's primary damage figures; ownership assignments, round boundaries, labels, positions, proficiency, and supplementary events are illustrative. This is a visual design proposal, not a reconstruction of the battle.
+Generated with the built-in image-generation tool from the screenshot supplied on 2026-11-07 and revised on 2026-11-08. The current image shows **Info**, with expert mass `'Slow'`, an indented resistance outcome, quoted spell names, and no movement or stack-creation detail. The transcript preserves the screenshot's primary damage figures; ownership assignments, round boundaries, labels, proficiency, and supplementary events are illustrative. This is a visual design proposal, not a reconstruction of the battle.
+
+## Initial generation · 2026-11-07
+
+This first prompt produced the earlier **Verbose** mockup. The revision below edits that image as committed in `74a09ff`.
 
 ```text
 Use case: precise-object-edit / ui-mockup.
@@ -59,4 +63,33 @@ ROUND 7
 The reaction line with zero fire damage demonstrates explicit immunity reporting. Do not imply that ordinary dragon breath is a fire spell or that general spell immunity blocks reflected Fire Shield damage. Distinguish two Jotunn Warlord stacks (D) and (d) consistently.
 
 Finish as a convincing native in-game screenshot, not a website. The combined log demonstrates expanded layout, round grouping, identity labels, owner colors, school-colored italic spells and proficiency, player-colored bold hero names, artifact attribution, damage-source/target clarity, explicit secondary and immunity outcomes, movement/creation events, Info/Verbose, copying, Enter dismissal, and thousands separators. Do not add unrelated gameplay panels or reveal enemy equipment.
+```
+
+## Revision · 2026-11-08
+
+```text
+Edit the supplied combat-log proof-of-concept image. This image is the edit target, not merely a style reference. Preserve the exact existing screenshot composition, ornate game frame, brown texture, UI layout, typography, title, colors, round headings, legend, copy/restore/close controls, event order, and every damage/casualty figure. Make only the following changes and the small vertical reflow they require. Do not redesign or enlarge the modal.
+
+1. In ROUND 6 replace the first event with exactly:
+"Lilith casts 'Slow' [Expert · Earth Magic · Mass]."
+Lilith remains bold red. The spell text 'Slow', including its surrounding straight single quote marks, is italic and EARTH GREEN, matching the green Earth legend. The Earth Magic label should also use green, matching the existing school-label treatment. Expert and Mass are ivory.
+Directly below this cast, indent a reactive outcome line one level deeper than the cast:
+"Crystal dragons (e) and Black dragons (g) resist the spell."
+Render "Crystal dragons (e)" and "Black dragons (g)" in the same purple used for all defending stacks; leave "and" and "resist the spell." ivory. Keep lowercase labels (e) and (g) exact. This line belongs under the Slow event, not under the round heading as a peer event.
+Remove Prayer completely from the image.
+
+2. In every log event put ALL SPELL NAMES in straight single quotes while keeping their existing italic and magic-school colors. Replace every "Fire Shield" with "'Fire Shield'" (italic fire-red) and "Clone" with "'Clone'" (italic water-blue). Slow above is green, Clone blue, Fire Shield fire-red. Do NOT quote artifact names: Elixir of Life remains italic owner-red without added quotation marks. Do not quote school names, creature names, ability names or the spell-school legend.
+
+3. Select "Info" at the top instead of "Verbose". Move the gold checkmark and active gold highlight to the Info button. Verbose must have no checkmark and the same inactive appearance as the old Info button. Keep BOTH buttons and their labels.
+
+4. The Info view must omit verbose movement and creation detail. REMOVE these two complete rows without leaving gaps:
+"Move · Arch Devils (A): 3:2 → 3:4."
+"Create · Jotunn Warlords (h), clone of (d), at 5:12."
+Do not display tile coordinates or movement/creation detail elsewhere. Keep the normal Clone cast event, damage events, secondary-breath damage, resistances, immunity, waits, defense, regeneration, rune levels, and all other existing rows. Keep their values and ownership colors exactly. Reflow upward just enough to close the two deleted rows and accommodate the added resistance line. Preserve the clear blank separator between ROUND 6 and ROUND 7.
+
+5. Update only the small footer's illustrative note to:
+"POC: round boundaries, labels and proficiency are illustrative. This is a demonstration, not a verified battle replay."
+Keep it readable and preserve "Close [Enter]".
+
+Check text carefully: 'Slow' is Expert Earth and Mass, 'Clone' Expert Water, all 4 existing 'Fire Shield' rows quoted, Crystal dragons (e) and Black dragons (g) purple, Info selected, Verbose unselected, NO Move row, NO Create row, NO tile coordinates. No spelling mistakes, no altered numbers, no added events or columns. Produce a crisp faithful image edit, not a new interpretation.
 ```
