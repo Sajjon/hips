@@ -108,6 +108,7 @@ Each proposal has its own file. The catalogue below is ordered by its globally u
 | [100](hip-0100.md) | Hero UI | Show remaining movement in the Hero Screen | [Noumenon72](https://www.reddit.com/user/Noumenon72/) | **DRAFT** | Simple |
 | [101](hip-0101.md) | Adventure Map UI | Use legal final diagonal steps in automatic routes | [Noumenon72](https://www.reddit.com/user/Noumenon72/) | **DRAFT** | Average |
 | [102](hip-0102.md) | Main menu UI | Prefill saves with the last saved filename | [Noumenon72](https://www.reddit.com/user/Noumenon72/) | **DRAFT** | Simple |
+| [103](hip-0103.md) | Hero UI — artifacts | Show whether duplicate artifact effects stack | Alexander Cyon | **DRAFT** | Simple |
 
 ## Invitation
 
